@@ -32,7 +32,7 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       background: var(--sky);
       color: var(--navy);
@@ -40,6 +40,8 @@
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
+    a, button { touch-action: manipulation; }
+    a { -webkit-tap-highlight-color: transparent; }
 
     /* ══════════════════════════════ NAV ══════════════════════════════ */
     .nav {
@@ -479,19 +481,21 @@
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
       background: var(--navy-deep);
       border-top: 3px solid var(--yellow);
-      padding: 10px 8px env(safe-area-inset-bottom);
+      padding: 6px 4px;
+      padding-bottom: calc(6px + env(safe-area-inset-bottom));
       grid-template-columns: repeat(4, 1fr);
-      gap: 4px;
+      gap: 2px;
     }
     .mobile-bar a {
-      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
       text-decoration: none; padding: 8px 4px; border-radius: 12px;
       transition: background 0.15s;
+      min-height: 52px; justify-content: center;
     }
-    .mobile-bar a:active { background: rgba(255,214,0,0.15); }
+    .mobile-bar a:active { background: rgba(255,214,0,0.18); }
     .mobile-bar .mb-icon { font-size: 22px; line-height: 1; }
     .mobile-bar .mb-label {
-      font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.03em;
       color: rgba(255,255,255,0.7); text-transform: uppercase;
     }
     .mobile-bar a.mb-ig .mb-label { color: #fcb045; }
@@ -502,7 +506,9 @@
     /* ── HAMBURGER ── */
     .hamburger {
       display: none; flex-direction: column; gap: 5px;
-      cursor: pointer; padding: 8px; border: none; background: none;
+      cursor: pointer; padding: 10px; border: none; background: none;
+      min-width: 44px; min-height: 44px;
+      justify-content: center; align-items: center;
     }
     .hamburger span {
       display: block; width: 24px; height: 2.5px;
@@ -515,18 +521,36 @@
 
     /* Mobile nav overlay */
     .mobile-menu {
-      display: none; position: fixed; inset: 0; z-index: 150;
+      display: flex; position: fixed; inset: 0; z-index: 150;
       background: var(--navy-deep);
       flex-direction: column; align-items: center; justify-content: center;
-      gap: 32px; padding: 40px;
+      gap: 4px; padding: 48px 32px;
+      opacity: 0; pointer-events: none;
+      transform: translateY(-16px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
     }
-    .mobile-menu.open { display: flex; }
+    .mobile-menu.open {
+      opacity: 1; pointer-events: auto; transform: translateY(0);
+    }
     .mobile-menu a {
-      font-family: var(--display); font-size: 32px; font-weight: 800;
+      font-family: var(--display); font-size: 30px; font-weight: 800;
       color: var(--white); text-decoration: none; letter-spacing: -0.02em;
       transition: color 0.2s;
+      padding: 10px 0; min-height: 56px;
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; text-align: center;
     }
     .mobile-menu a:active { color: var(--yellow); }
+    .mobile-menu-close {
+      position: absolute; top: 18px; right: 18px;
+      background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.2);
+      border-radius: 50%; cursor: pointer;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.6); font-size: 20px; line-height: 1;
+      transition: all 0.2s;
+    }
+    .mobile-menu-close:active { background: rgba(255,214,0,0.2); color: var(--yellow); }
 
     /* ══════════════════════════════ RESPONSIVE ══════════════════════════════ */
     /* Tablet */
@@ -547,94 +571,136 @@
     /* Mobile */
     @media(max-width:640px){
       /* Nav */
-      .nav{ padding:12px 18px; }
+      .nav{ padding:10px 16px; }
       .nav-links{ display:none; }
       .nav-cta{ display:none; }
       .hamburger{ display:flex; }
       .nav-logo-text{ font-size:18px; }
-      .nav-logo img{ width:36px; height:36px; }
+      .nav-logo img{ width:34px; height:34px; }
 
-      /* Bottom bar */
+      /* Bottom bar + body clearance */
       .mobile-bar{ display:grid; }
-      body{ padding-bottom:72px; }
+      body{ padding-bottom:calc(68px + env(safe-area-inset-bottom)); }
 
       /* Hero */
-      .hero{ padding:100px 20px 60px; }
-      .hero-title{ letter-spacing:-0.035em; }
+      .hero{ padding:84px 22px 48px; min-height:auto; }
+      .hero-logo-wrap{ margin-bottom:20px!important; }
+      .hero-logo-wrap img{
+        width:min(160px,42vw)!important;
+        height:min(160px,42vw)!important;
+      }
+      .hero-badge{ margin-bottom:18px; font-size:11px; padding:7px 18px; }
+      .hero-title{
+        font-size:clamp(52px,15vw,76px);
+        letter-spacing:-0.04em;
+        margin-bottom:16px;
+        line-height:0.88;
+      }
+      .hero-sub{
+        font-size:15px; line-height:1.6;
+        margin-bottom:26px; max-width:100%;
+      }
+      .hero-actions{
+        flex-direction:column; width:100%; max-width:100%;
+        gap:10px;
+      }
+      .hero .btn-yellow,.hero .btn-white{
+        width:100%; justify-content:center;
+        text-align:center; font-size:15px;
+        padding:15px 24px;
+      }
       .hero-stats{
         gap:0; flex-wrap:nowrap;
         width:100%; justify-content:space-around;
-        background:rgba(0,0,0,0.12); border-radius:16px; padding:16px 12px;
-        margin-top:48px;
+        background:rgba(0,0,0,0.12); border-radius:16px;
+        padding:14px 8px; margin-top:28px;
       }
-      .stat-num{ font-size:28px; }
-      .stat-label{ font-size:11px; }
-      .hero .btn-yellow,.hero .btn-white{ width:100%; justify-content:center; font-size:15px; }
-      .hero-actions{ flex-direction:column; width:100%; max-width:340px; }
+      .stat-num{ font-size:26px; }
+      .stat-label{ font-size:10px; }
       .bubble{ display:none; }
       .floater{ display:none; }
 
-      /* Logo in hero */
-      .hero img[alt="C&Z Kiosk Logo"]{ width:160px!important; height:160px!important; }
-
       /* Sections */
-      .section{ padding:60px 18px; }
-      .products-header{ flex-direction:column; gap:16px; margin-bottom:32px; }
+      .section{ padding:52px 18px; }
+      .products-header{ flex-direction:column; gap:12px; margin-bottom:24px; }
       .section-sub{ font-size:15px; }
-
-      /* Products */
-      .pgrid{ grid-template-columns:1fr; gap:12px; }
-      .pc-hero,.pc-a,.pc-b,.pc-c,.pc-d,.pc-dhl{ grid-column:1/2; }
-      .pc{ padding:28px; }
-      .pc-hero{ min-height:auto; }
-      .pc-hero .c-title{ font-size:30px; }
-      .pc-dhl{ flex-direction:column; gap:16px; text-align:center; }
-
-      /* Videos */
-      .vid-grid{ grid-template-columns:1fr; gap:16px; }
-      .vid-wrap video{ max-height:400px; }
-
-      /* Social follow buttons */
-      .social-follow-row{ flex-direction:column!important; }
-      .social-follow-row a{ width:100%!important; min-width:unset!important; }
-
-      /* Hours */
-      .hours-grid{ grid-template-columns:1fr; gap:32px; }
-      .h-card{ padding:36px 24px; }
-      .h-emoji{ font-size:56px; }
-
-      /* Location */
-      .loc-grid{ grid-template-columns:1fr; gap:32px; }
-      .map-box{ height:280px; }
-      .loc-ico{ width:40px; height:40px; font-size:17px; }
-
-      /* Reviews */
-      .rev-grid{ grid-template-columns:1fr; gap:12px; }
-      .rev-score{ font-size:80px; }
-
-      /* Instagram CTA */
-      .ig-box{ padding:36px 20px; }
-      .ig-title{ font-size:30px!important; }
-      .ig-cta{ width:100%; justify-content:center; padding:15px 24px; }
-
-      /* Footer */
-      .footer{ padding:48px 18px 24px; }
-      .footer-grid{ grid-template-columns:1fr; gap:32px; }
-      .footer-bottom{ flex-direction:column; align-items:flex-start; gap:10px; }
-      .footer-logo{ font-size:28px; }
-
-      /* Section titles */
       .section-title{ letter-spacing:-0.03em; }
 
-      /* Card shadows smaller on mobile */
-      .pc{ box-shadow:3px 3px 0 var(--navy); }
-      .rev-card{ box-shadow:3px 3px 0 rgba(13,32,128,0.12); }
+      /* Products */
+      .pgrid{ grid-template-columns:1fr; gap:10px; }
+      .pc-hero,.pc-a,.pc-b,.pc-c,.pc-d,.pc-dhl{ grid-column:1/2; }
+      .pc{ padding:24px 22px; box-shadow:3px 3px 0 var(--navy); }
+      .pc-hero{ min-height:auto; }
+      .pc-hero .c-title{ font-size:28px; }
+      .pc-hero .c-icon{ font-size:56px; margin-bottom:14px; }
+      .c-icon{ font-size:40px; margin-bottom:12px; }
+      .c-title{ font-size:22px; }
+      .c-desc{ font-size:14px; }
+      .pc-dhl{ flex-direction:column; gap:12px; text-align:center; align-items:center; }
+
+      /* Videos */
+      .vid-grid{ grid-template-columns:1fr; gap:14px; margin-top:32px; }
+      .vid-wrap video{ max-height:80vh; }
+      .vid-wrap{ box-shadow:4px 4px 0 var(--navy); }
+
+      /* Social follow */
+      .social-follow-row{ flex-direction:column!important; gap:12px!important; }
+      .social-follow-row a{
+        width:100%!important; min-width:unset!important;
+        padding:17px 24px!important; font-size:16px!important;
+      }
+      .follower-stats-sep{ display:none!important; }
+      .follower-stats-row{ flex-direction:column!important; gap:16px!important; }
+
+      /* Hours */
+      .hours-grid{ grid-template-columns:1fr; gap:24px; }
+      .h-card{ padding:30px 22px; }
+      .h-emoji{ font-size:48px; margin-bottom:14px; }
+      .h-card-title{ font-size:22px; }
+      .h-row{ padding:14px 0; }
+      .h-time{ font-size:16px; }
+      .h-day{ font-size:14px; }
+
+      /* Location */
+      .loc-grid{ grid-template-columns:1fr; gap:28px; }
+      .map-box{ height:260px; }
+      .loc-ico{ width:42px; height:42px; border-radius:12px; font-size:18px; }
+      .loc-content p{ font-size:14px; }
+
+      /* Reviews */
+      .rev-grid{ grid-template-columns:1fr; gap:10px; }
+      .rev-score{ font-size:72px; }
+      .rev-card{ padding:22px; box-shadow:3px 3px 0 rgba(13,32,128,0.12); }
+      .rev-text{ font-size:14px; }
+
+      /* Instagram CTA */
+      .ig-box{ padding:32px 20px; border-radius:22px; }
+      .ig-title{ font-size:28px!important; }
+      .ig-sub{ font-size:15px; margin-bottom:26px; }
+      .ig-cta{ width:100%; justify-content:center; padding:15px 24px; font-size:15px; }
+
+      /* Footer */
+      .footer{ padding:44px 18px 24px; }
+      .footer-grid{ grid-template-columns:1fr; gap:26px; }
+      .footer-bottom{ flex-direction:column; align-items:flex-start; gap:8px; }
+      .footer-logo{ font-size:26px; }
     }
 
-    /* Very small phones */
+    /* Very small phones (≤375px) */
     @media(max-width:380px){
-      .hero-stats{ flex-wrap:wrap; gap:12px; background:none; padding:0; }
-      .hero-actions .btn-yellow,.hero-actions .btn-white{ font-size:14px; padding:13px 20px; }
+      .hero{ padding:78px 18px 44px; }
+      .hero-title{ font-size:clamp(46px,13vw,58px); line-height:0.9; }
+      .hero-stats{
+        flex-wrap:wrap; gap:10px;
+        background:none; padding:0; margin-top:20px;
+      }
+      .stat-num{ font-size:22px; }
+      .stat-label{ font-size:10px; }
+      .hero-actions .btn-yellow,.hero-actions .btn-white{
+        font-size:14px; padding:14px 18px;
+      }
+      .section{ padding:44px 16px; }
+      .pc{ padding:20px 18px; }
     }
   </style>
 </head>
@@ -660,14 +726,15 @@
 
 <!-- Mobile Overlay-Menü -->
 <div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-menu-close" onclick="toggleMenu()" aria-label="Menü schließen">✕</button>
   <a href="#produkte" onclick="toggleMenu()">Produkte</a>
   <a href="#videos" onclick="toggleMenu()">Videos</a>
   <a href="#zeiten" onclick="toggleMenu()">Öffnungszeiten</a>
   <a href="#standort" onclick="toggleMenu()">Standort</a>
   <a href="https://www.instagram.com/cundzkiosk/" target="_blank" rel="noopener"
-     style="color:var(--yellow)!important;">📸 Instagram</a>
+     onclick="toggleMenu()" style="color:var(--yellow)!important;">📸 Instagram</a>
   <a href="https://www.tiktok.com/@cundzkiosk" target="_blank" rel="noopener"
-     style="color:rgba(255,255,255,0.6)!important;font-size:24px!important;">🎵 TikTok</a>
+     onclick="toggleMenu()" style="color:rgba(255,255,255,0.55)!important;font-size:24px!important;">🎵 TikTok</a>
 </div>
 
 <!-- Mobile Bottom Bar -->
@@ -699,7 +766,7 @@
   <span class="floater">🎁</span><span class="floater">🍭</span>
 
   <!-- LOGO -->
-  <div style="margin-bottom:28px;animation:fadeUp 0.6s ease both;">
+  <div class="hero-logo-wrap" style="margin-bottom:28px;animation:fadeUp 0.6s ease both;">
     <img src="media/logo.jpg" alt="C&Z Kiosk Logo"
       style="width:min(220px,50vw);height:min(220px,50vw);
              border-radius:50%;
@@ -896,12 +963,12 @@
   </div>
 
   <!-- Follower-Zahlen -->
-  <div style="display:flex;gap:48px;justify-content:center;margin-top:36px;flex-wrap:wrap;" class="r d3">
+  <div class="follower-stats-row r d3" style="display:flex;gap:48px;justify-content:center;margin-top:36px;flex-wrap:wrap;">
     <div style="text-align:center;">
       <div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--navy);">6.827</div>
       <div style="font-size:13px;color:var(--muted);margin-top:3px;">Instagram Follower</div>
     </div>
-    <div style="width:1px;background:var(--border);"></div>
+    <div class="follower-stats-sep" style="width:1px;background:var(--border);"></div>
     <div style="text-align:center;">
       <div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--navy);">@cundzkiosk</div>
       <div style="font-size:13px;color:var(--muted);margin-top:3px;">auf beiden Plattformen</div>
