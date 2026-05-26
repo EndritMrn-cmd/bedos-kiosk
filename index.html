@@ -672,6 +672,7 @@
       .rev-score{ font-size:72px; }
       .rev-card{ padding:22px; box-shadow:3px 3px 0 rgba(13,32,128,0.12); }
       .rev-text{ font-size:14px; }
+      .rev-platforms-row{ flex-direction:column; align-items:center; gap:10px; }
 
       /* Instagram CTA */
       .ig-box{ padding:32px 20px; border-radius:22px; }
@@ -978,28 +979,81 @@
 
 <!-- ═══ REVIEWS ═══ -->
 <section class="section bg-navy">
-  <div style="text-align:center;margin-bottom:48px;" class="r">
+  <div style="text-align:center;margin-bottom:52px;" class="r">
     <div class="section-label r" style="justify-content:center;">Was Kunden sagen</div>
     <div class="rev-score">4.2</div>
-    <div style="font-size:28px;margin:10px 0;">⭐⭐⭐⭐</div>
-    <p style="color:rgba(255,255,255,0.6);font-size:15px;">Basierend auf 26 Google-Bewertungen</p>
+    <div style="font-size:26px;margin:10px 0 6px;">⭐⭐⭐⭐</div>
+
+    <!-- Platform Ratings Row -->
+    <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:20px;" class="rev-platforms-row">
+      <div style="display:inline-flex;align-items:center;gap:10px;
+                  background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.18);
+                  border-radius:100px;padding:8px 20px;">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        <span style="font-size:13px;font-weight:700;color:#fff;">4,2 / 5</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.5);">26 Google-Bewertungen</span>
+      </div>
+      <div style="display:inline-flex;align-items:center;gap:10px;
+                  background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.18);
+                  border-radius:100px;padding:8px 20px;">
+        <span style="font-size:16px;">🌱</span>
+        <span style="font-size:13px;font-weight:700;color:#fff;">4,3 / 5</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.5);">80 Too Good To Go</span>
+      </div>
+    </div>
   </div>
+
   <div class="rev-grid">
-    <div class="rev-card r">
+    <!-- Echtes verifiziertes Zitat -->
+    <div class="rev-card r" style="position:relative;">
+      <div style="display:inline-flex;align-items:center;gap:6px;
+                  background:#e8f4fd;border-radius:100px;padding:4px 10px;
+                  margin-bottom:14px;">
+        <svg width="12" height="12" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        <span style="font-size:10px;font-weight:700;color:#4285F4;letter-spacing:0.04em;">GOOGLE BEWERTUNG</span>
+      </div>
       <div class="rev-stars">⭐⭐⭐⭐⭐</div>
-      <p class="rev-text">"Tolle Auswahl an seltenen Süßigkeiten und Getränken. Die Dubai-Schokolade ist ein absolutes Highlight — gibt's in ganz Freiburg sonst nirgendwo!"</p>
-      <div class="rev-author">Stammkundin aus dem Rieselfeld</div>
+      <p class="rev-text">"Die Familie, die den Laden betreibt, ist sehr nett und immer bereit für ein Gespräch."</p>
+      <div class="rev-author">Google-Kunde · Freiburg</div>
     </div>
-    <div class="rev-card r d1">
+
+    <!-- Too Good To Go Plattform-Daten -->
+    <div class="rev-card r d1" style="position:relative;">
+      <div style="display:inline-flex;align-items:center;gap:6px;
+                  background:#edf7ed;border-radius:100px;padding:4px 10px;
+                  margin-bottom:14px;">
+        <span style="font-size:11px;">🌱</span>
+        <span style="font-size:10px;font-weight:700;color:#2e7d32;letter-spacing:0.04em;">TOO GOOD TO GO</span>
+      </div>
       <div class="rev-stars">⭐⭐⭐⭐⭐</div>
-      <p class="rev-text">"Super freundliches Personal, cozy Atmosphäre und immer die neuesten viralen Produkte. Mein absoluter Lieblingskiosk in ganz Freiburg!"</p>
-      <div class="rev-author">Begeisterter Stammkunde</div>
+      <p class="rev-text">80 Bewertungen auf Too Good To Go mit 4,3/5 Sternen. Besonders hervorgehoben: Abholerlebnis 4,7 · Qualität 4,5 · Auswahl 4,5.</p>
+      <div class="rev-author">Too Good To Go · Plattformbewertung</div>
     </div>
-    <div class="rev-card r d2">
+
+    <!-- Aggregierte Kundenstimmen (kioskspotter.de) -->
+    <div class="rev-card r d2" style="position:relative;">
+      <div style="display:inline-flex;align-items:center;gap:6px;
+                  background:#fff8e1;border-radius:100px;padding:4px 10px;
+                  margin-bottom:14px;">
+        <span style="font-size:11px;">📋</span>
+        <span style="font-size:10px;font-weight:700;color:#f57f17;letter-spacing:0.04em;">KUNDENSTIMMEN</span>
+      </div>
       <div class="rev-stars">⭐⭐⭐⭐</div>
-      <p class="rev-text">"Ein echtes Süßigkeitenparadies! Die amerikanischen Produkte und exotischen Fanta-Sorten sind der absolute Hammer. Immer wieder gerne!"</p>
-      <div class="rev-author">Zufriedener Besucher</div>
+      <p class="rev-text">Kunden loben die große Auswahl an exotischen Produkten (American Candy, Dubai Schokolade), die freundliche Atmosphäre und faire Preise. Das Team macht den Kiosk zum echten Treffpunkt im Rieselfeld.</p>
+      <div class="rev-author">Zusammenfassung · 26 Google-Bewertungen</div>
     </div>
+  </div>
+
+  <!-- Link zu Google Maps -->
+  <div style="text-align:center;margin-top:40px;" class="r d3">
+    <a href="https://www.google.com/maps/search/C%26Z+Kiosk+Geschwister+Scholl+Platz+Freiburg"
+       target="_blank" rel="noopener"
+       style="display:inline-flex;align-items:center;gap:8px;
+              color:rgba(255,255,255,0.6);font-size:13px;font-weight:600;
+              text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);
+              padding-bottom:2px;transition:color 0.2s;">
+      Alle Bewertungen auf Google Maps ansehen →
+    </a>
   </div>
 </section>
 
