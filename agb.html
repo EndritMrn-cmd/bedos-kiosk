@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGB – C&Z KIOSK | Freiburg Rieselfeld</title>
+  <meta name="description" content="Allgemeine Geschäftsbedingungen des C&Z KIOSK, Geschwister Scholl Platz 1, 79111 Freiburg im Breisgau.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://endritmrn-cmd.github.io/bedos-kiosk/agb.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sky:      #2BB5E8;
+      --sky-mid:  #1A9DD4;
+      --sky-deep: #0F87BC;
+      --navy:     #0D2080;
+      --navy-deep:#071566;
+      --yellow:   #FFD600;
+      --yellow2:  #FFA800;
+      --white:    #FFFFFF;
+      --off-white:#F0F8FF;
+      --muted:    rgba(13,32,128,0.6);
+      --border:   rgba(13,32,128,0.12);
+      --display:  'Syne', sans-serif;
+      --body:     'DM Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--off-white);
+      color: var(--navy);
+      font-family: var(--body);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    .nav {
+      background: var(--navy-deep);
+      padding: 16px 52px;
+      display: flex; align-items: center; gap: 20px;
+      border-bottom: 3px solid var(--yellow);
+    }
+    .nav a { text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .nav-logo {
+      font-family: var(--display); font-size: 22px; font-weight: 800;
+      color: var(--yellow); letter-spacing: -0.5px;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+    }
+    .nav-back {
+      color: rgba(255,255,255,0.6); font-size: 13px; font-weight: 600;
+      display: flex; align-items: center; gap: 6px; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--yellow); }
+    .nav-sep { color: rgba(255,255,255,0.2); font-size: 16px; }
+    @media(max-width:640px){ .nav{ padding: 14px 18px; } }
+
+    /* HERO BAND */
+    .hero-band {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+      padding: 64px 52px 52px;
+      border-bottom: 4px solid var(--yellow);
+    }
+    .hero-band .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,214,0,0.15); border: 1.5px solid rgba(255,214,0,0.4);
+      border-radius: 100px; padding: 6px 16px;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--yellow);
+      margin-bottom: 20px;
+    }
+    .hero-band h1 {
+      font-family: var(--display); font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800; letter-spacing: -0.03em; color: var(--white);
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.3); line-height: 1;
+    }
+    .hero-band p { margin-top: 14px; font-size: 15px; color: rgba(255,255,255,0.6); }
+    @media(max-width:640px){ .hero-band{ padding: 44px 18px 36px; } }
+
+    /* TOC */
+    .toc {
+      background: var(--white); border: 2px solid var(--border);
+      border-radius: 20px; padding: 32px 44px;
+      box-shadow: 0 4px 24px rgba(13,32,128,0.07);
+      margin-bottom: 24px;
+    }
+    .toc h2 {
+      font-family: var(--display); font-size: 13px; font-weight: 800;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky-deep);
+      margin-bottom: 16px;
+    }
+    .toc ol { padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+    .toc a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .toc a:hover { color: var(--navy); }
+    @media(max-width:640px){ .toc{ padding: 24px 20px; } }
+
+    /* CONTENT */
+    .content { max-width: 760px; margin: 0 auto; padding: 64px 52px 80px; }
+    @media(max-width:640px){ .content{ padding: 40px 18px 60px; } }
+
+    .card {
+      background: var(--white); border: 2px solid var(--border);
+      border-radius: 20px; padding: 44px;
+      box-shadow: 0 4px 24px rgba(13,32,128,0.07);
+      margin-bottom: 24px;
+    }
+    @media(max-width:640px){ .card{ padding: 28px 22px; } }
+
+    .card h2 {
+      font-family: var(--display); font-size: 20px; font-weight: 800;
+      color: var(--navy); letter-spacing: -0.02em; margin-bottom: 16px;
+      padding-bottom: 14px; border-bottom: 2px solid var(--border);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .para-num {
+      width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+      background: var(--navy); color: var(--yellow);
+      font-family: var(--display); font-size: 14px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .card p, .card li { font-size: 14px; line-height: 1.8; color: var(--muted); }
+    .card p + p { margin-top: 10px; }
+    .card ul { padding-left: 18px; margin: 8px 0; display: flex; flex-direction: column; gap: 4px; }
+    .card a { color: var(--sky-deep); text-decoration: none; }
+    .card a:hover { text-decoration: underline; }
+    .card .stamp {
+      font-size: 11px; color: rgba(13,32,128,0.35); margin-top: 20px;
+      padding-top: 16px; border-top: 1px solid var(--border);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--navy-deep); padding: 32px 52px;
+      border-top: 3px solid rgba(255,214,0,0.3);
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    footer p { font-size: 13px; color: rgba(255,255,255,0.35); }
+    footer a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 13px; }
+    footer a:hover { color: var(--yellow); }
+    @media(max-width:640px){ footer{ padding: 24px 18px; flex-direction: column; align-items: flex-start; } }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html">
+    <span class="nav-logo">C&amp;Z KIOSK</span>
+  </a>
+  <span class="nav-sep">/</span>
+  <a href="index.html" class="nav-back">← Zurück zur Startseite</a>
+</nav>
+
+<div class="hero-band">
+  <div class="badge">📄 Rechtliches</div>
+  <h1>Allgemeine Geschäftsbedingungen</h1>
+  <p>C&amp;Z KIOSK · Freiburg im Breisgau · Stand: Mai 2025</p>
+</div>
+
+<main class="content">
+
+  <div class="toc">
+    <h2>Inhaltsverzeichnis</h2>
+    <ol>
+      <li><a href="#s1">§ 1 Geltungsbereich</a></li>
+      <li><a href="#s2">§ 2 Vertragsabschluss</a></li>
+      <li><a href="#s3">§ 3 Preise und Zahlung</a></li>
+      <li><a href="#s4">§ 4 Umtausch und Rückgabe</a></li>
+      <li><a href="#s5">§ 5 DHL Paketshop-Service</a></li>
+      <li><a href="#s6">§ 6 Gewährleistung</a></li>
+      <li><a href="#s7">§ 7 Haftungsbeschränkung</a></li>
+      <li><a href="#s8">§ 8 Datenschutz</a></li>
+      <li><a href="#s9">§ 9 Streitbeilegung</a></li>
+      <li><a href="#s10">§ 10 Anwendbares Recht</a></li>
+    </ol>
+  </div>
+
+  <div class="card" id="s1">
+    <h2><span class="para-num">1</span> Geltungsbereich</h2>
+    <p>Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Käufe und Dienstleistungen im <strong>C&amp;Z KIOSK</strong>, Geschwister Scholl Platz 1, 79111 Freiburg im Breisgau.</p>
+    <p>Mit dem Kauf eines Produkts oder der Inanspruchnahme einer Dienstleistung erkennt der Kunde diese AGB an. Abweichende, entgegenstehende oder ergänzende AGB des Kunden werden nicht Bestandteil des Vertrages, auch wenn wir ihnen nicht ausdrücklich widersprechen.</p>
+  </div>
+
+  <div class="card" id="s2">
+    <h2><span class="para-num">2</span> Vertragsabschluss</h2>
+    <p>Ein Kaufvertrag kommt zustande, sobald der Kunde die Ware an der Kasse übergibt und der Kassenbon ausgestellt wird. Die Preisauszeichnung der Waren stellt kein bindendes Angebot dar.</p>
+    <p>Wir behalten uns das Recht vor, den Kauf einzelner Artikel zu verweigern, insbesondere bei Verdacht auf gewerblichen Weiterverkauf oder bei Nichtverfügbarkeit der Ware.</p>
+  </div>
+
+  <div class="card" id="s3">
+    <h2><span class="para-num">3</span> Preise und Zahlung</h2>
+    <p>Alle angegebenen Preise sind Endpreise in Euro inklusive der gesetzlichen Mehrwertsteuer. Preisänderungen und Irrtümer bleiben vorbehalten.</p>
+    <p>Wir akzeptieren folgende Zahlungsmittel:</p>
+    <ul>
+      <li>Barzahlung in Euro</li>
+      <li>EC-Karte / Girocard</li>
+      <li>Kreditkarte (Visa, Mastercard)</li>
+      <li>Kontaktloses Bezahlen (NFC)</li>
+    </ul>
+    <p>Eine Reservierungspflicht besteht nicht. Artikel werden nicht auf Rechnung verkauft.</p>
+  </div>
+
+  <div class="card" id="s4">
+    <h2><span class="para-num">4</span> Umtausch und Rückgabe</h2>
+    <p>Ein gesetzliches Umtausch- oder Rückgaberecht besteht nur bei nachgewiesenen Sachmängeln der Ware gemäß § 437 BGB. Ein freiwilliges Umtauschrecht gewähren wir nach Ermessen, sofern:</p>
+    <ul>
+      <li>die Originalverpackung ungeöffnet und unbeschädigt ist,</li>
+      <li>der Kassenbon vorgelegt wird,</li>
+      <li>die Rückgabe innerhalb von 7 Tagen nach Kauf erfolgt.</li>
+    </ul>
+    <p>Lebensmittel, Süßwaren und gekühlte Produkte sind grundsätzlich vom Umtausch ausgeschlossen, sofern kein Sachmangel vorliegt. Bei Mängeln wenden Sie sich bitte direkt an uns im Kiosk oder per E-Mail an <a href="mailto:info@cundzkiosk.de">info@cundzkiosk.de</a>.</p>
+  </div>
+
+  <div class="card" id="s5">
+    <h2><span class="para-num">5</span> DHL Paketshop-Service</h2>
+    <p>Der C&amp;Z KIOSK betreibt einen offiziellen DHL Paketshop und bietet folgende DHL-Dienstleistungen an:</p>
+    <ul>
+      <li>Annahme von Paketsendungen zur Weitergabe an DHL</li>
+      <li>Ausgabe von Paketen an berechtigte Empfänger</li>
+      <li>Rücksendungen und Retouren</li>
+    </ul>
+    <p>Für alle DHL-Dienstleistungen gelten zusätzlich die Allgemeinen Geschäftsbedingungen der Deutsche Post AG / DHL Paket GmbH. Der C&amp;Z KIOSK handelt dabei als Annahmestelle und nicht als Transportunternehmen. Wir haften nicht für Schäden, Verluste oder Verzögerungen, die im Rahmen des Transports durch DHL entstehen.</p>
+    <p>Für die Abholung von Paketen ist ein gültiger Personalausweis oder Reisepass erforderlich.</p>
+  </div>
+
+  <div class="card" id="s6">
+    <h2><span class="para-num">6</span> Gewährleistung</h2>
+    <p>Für Mängel an Waren gelten die gesetzlichen Gewährleistungsrechte gemäß §§ 434 ff. BGB. Bei Lebensmitteln ist das aufgedruckte Mindesthaltbarkeitsdatum zu beachten. Bitte prüfen Sie Ihre Ware beim Kauf auf sichtbare Mängel.</p>
+    <p>Für importierte Spezialitäten (American Candy, Exotic Drinks etc.) können abweichende Haltbarkeits- und Zulassungshinweise gelten. Wir weisen darauf hin, dass einige Importprodukte möglicherweise nicht den deutschen oder europäischen Lebensmittelstandards entsprechen. Der Kauf erfolgt auf eigene Verantwortung des Kunden.</p>
+  </div>
+
+  <div class="card" id="s7">
+    <h2><span class="para-num">7</span> Haftungsbeschränkung</h2>
+    <p>Wir haften unbeschränkt für Vorsatz und grobe Fahrlässigkeit sowie bei Verletzung von Leben, Körper oder Gesundheit.</p>
+    <p>Für leichte Fahrlässigkeit haften wir nur bei Verletzung einer wesentlichen Vertragspflicht (Kardinalpflicht), deren Erfüllung die ordnungsgemäße Durchführung des Vertrages erst ermöglicht und auf deren Einhaltung der Kunde regelmäßig vertrauen darf. In diesem Fall ist die Haftung auf den vorhersehbaren, vertragstypischen Schaden begrenzt.</p>
+    <p>Eine weitergehende Haftung ist ausgeschlossen.</p>
+  </div>
+
+  <div class="card" id="s8">
+    <h2><span class="para-num">8</span> Datenschutz</h2>
+    <p>Wir erheben und verarbeiten personenbezogene Daten ausschließlich im Rahmen der gesetzlichen Bestimmungen, insbesondere der Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG).</p>
+    <p>Im Rahmen des Kassenbetriebs werden keine personenbezogenen Daten gespeichert. Bei Nutzung des DHL Paketshop-Services können Daten im Rahmen der DHL-Dienstleistung verarbeitet werden; es gelten insoweit die Datenschutzhinweise der Deutsche Post AG / DHL.</p>
+    <p>Für Fragen zum Datenschutz wenden Sie sich bitte per E-Mail an <a href="mailto:info@cundzkiosk.de">info@cundzkiosk.de</a>.</p>
+  </div>
+
+  <div class="card" id="s9">
+    <h2><span class="para-num">9</span> Streitbeilegung</h2>
+    <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>.</p>
+    <p>Wir sind nicht verpflichtet und grundsätzlich nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen. Bei Beschwerden wenden Sie sich bitte direkt an uns – wir bemühen uns um eine schnelle und unkomplizierte Lösung.</p>
+  </div>
+
+  <div class="card" id="s10">
+    <h2><span class="para-num">10</span> Anwendbares Recht &amp; Gerichtsstand</h2>
+    <p>Es gilt ausschließlich das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG).</p>
+    <p>Gerichtsstand ist, soweit gesetzlich zulässig, Freiburg im Breisgau.</p>
+    <p>Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p>
+    <div class="stamp">Stand: Mai 2025 · C&amp;Z KIOSK · Geschwister Scholl Platz 1 · 79111 Freiburg im Breisgau</div>
+  </div>
+
+</main>
+
+<footer>
+  <p>© 2025 C&amp;Z KIOSK · Geschwister Scholl Platz 1 · 79111 Freiburg im Breisgau</p>
+  <div style="display:flex;gap:16px;">
+    <a href="index.html">Startseite</a>
+    <span style="color:rgba(255,255,255,0.2);">|</span>
+    <a href="impressum.html">Impressum</a>
+  </div>
+</footer>
+
+</body>
+</html>
